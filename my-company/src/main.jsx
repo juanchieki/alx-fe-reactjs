@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './components/App';
+import App from './App';
 
 // Add some global styles
 const globalStyles = document.createElement('style');
@@ -15,6 +15,7 @@ globalStyles.textContent = `
     margin: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-family: Arial, sans-serif;
   }
   
   a {
@@ -39,4 +40,3 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <App />
   </React.StrictMode>
 );
-
