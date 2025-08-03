@@ -8,6 +8,7 @@ A React application that allows users to search for GitHub users and view their 
 - View user profiles with detailed information
 - Responsive design that works on all devices
 - Real-time search results
+- Random text added for testing purposes: The quick brown fox jumps over the lazy dog. This is a test update to the README file.
 
 ## Technologies Used
 
