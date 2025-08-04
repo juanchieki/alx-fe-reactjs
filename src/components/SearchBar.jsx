@@ -70,14 +70,16 @@ const SearchBar = ({ onSearch, onAdvancedSearch, disabled = false, loading = fal
               )}
             </button>
           </div>
-          <button 
-            type="submit" 
-            className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 flex-shrink-0"
-            disabled={disabled || loading || !username.trim()}
-            aria-label="Search"
-            aria-busy={loading}
+          <button
+            type="submit"
+            disabled={disabled || loading}
+            className={`px-6 py-2 rounded-lg ${
+              disabled || loading
+                ? 'bg-gray-600 cursor-not-allowed'
+                : 'bg-blue-600 hover:bg-blue-700'
+            } text-white font-medium transition-colors`}
           >
-            {loading ? 'Searching...' : 'Search'}
+            {loading ? 'Loading...' : 'Search'}
           </button>
         </div>
 
