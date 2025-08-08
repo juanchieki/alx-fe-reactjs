@@ -8,20 +8,12 @@ const BASE_URL = 'https://api.github.com';
  * @returns {Promise<object>} - The user data from GitHub API.
  */
 
-const fetchUserData = async (username, location = '', minRepos = '', page = 1) => {
+const fetchUserData = async (username) => {
   try {
-    let query = username ? `${username}` : '';
-    if (location) query += `+location:${location}`;
-    if (minRepos) query += `+repos:>=${minRepos}`;
-
-    const response = await axios.get(`https://api.github.com/search/users?q=${query}&per_page=10&page=${page}`);
-
-    return {
-      users: response.data.items,
-      totalCount: response.data.total_count,
-    };
+    const response = await axios.get(`${BASE_URL}/users/${username}`);
+    return response.data;
   } catch (error) {
-    throw new Error('Failed to fetch user list');
+    throw new Error('Failed to fetch user');
   }
 };
 
