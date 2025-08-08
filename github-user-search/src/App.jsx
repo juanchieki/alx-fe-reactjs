@@ -1,4 +1,4 @@
-import Search from './components/Search.jsx';
+import Search from './components/Search';
 function App() {
   const handleSearch = (username) => {
     console.log("Searching for:", username);
