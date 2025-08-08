@@ -1,22 +1,40 @@
-// services/githubService.js
-import axios from "axios";
+import axios from 'axios';
 
-// Base URL for the GitHub Users API
-const BASE_URL = "https://api.github.com/users/";
+const BASE_URL = 'https://api.github.com';
 
-/**
- * Fetch GitHub user profile data
- * @param {string} username - The GitHub username to search
- * @returns {Promise<Object>} - The user's GitHub profile data
+/** 
+* Fetches GitHub user data based on username.
+ * @param {string} username - GitHub username to search for.
+ * @returns {Promise<object>} - The user data from GitHub API.
  */
-export const fetchUserData = async (username) => {
+
+const fetchUserData = async (username, location = '', minRepos = '', page = 1) => {
   try {
-    const response = await axios.get(`${BASE_URL}${username}`);
-    return response.data;
+    let query = username ? ${username} : '';
+    if (location) query += +location:${location};
+    if (minRepos) query += +repos:>=${minRepos};
+
+    const response = await axios.get(https://api.github.com/search/users?q=${query}&per_page=10&page=${page});
+
+    return {
+      users: response.data.items,
+      totalCount: response.data.total_count,
+    };
   } catch (error) {
-    if (error.response && error.response.status === 404) {
-      throw new Error("GitHub user not found.");
-    }
-    throw new Error("Error fetching GitHub user data.");
+    throw new Error('Failed to fetch user list');
   }
+};
+
+const fetchFullUserDetails = async (username) => {
+  try {
+    const res = await axios.get(${BASE_URL}/users/${username});
+    return res.data;
+  } catch (err) {
+    throw new Error('Failed to fetch full profile');
+  }
+};
+
+export default {
+  fetchUserData,
+  fetchFullUserDetails,
 };
