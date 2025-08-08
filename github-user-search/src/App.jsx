@@ -1,4 +1,4 @@
-import Search from './components/Search';
+import Search from './components/search.jsx';
 
 function App() {
   const handleSearch = (username) => {
@@ -15,3 +15,4 @@ function App() {
 }
 
 export default App;
+
