@@ -1,5 +1,4 @@
-import Search from './components/search.jsx';
-
+import Search from './components/Search';
 function App() {
   const handleSearch = (username) => {
     console.log("Searching for:", username);
@@ -15,4 +14,3 @@ function App() {
 }
 
 export default App;
-
