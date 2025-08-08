@@ -1,10 +1,10 @@
-import Search from './components/Search';
+import Search from './components/Search.jsx';
 function App() {
   const handleSearch = (username) => {
     console.log("Searching for:", username);
     // Trigger API call or route change here
   };
-
+//API 
   return (
     <div className="app">
       <h1>GitHub Profile Search</h1>
@@ -14,3 +14,4 @@ function App() {
 }
 
 export default App;
+
