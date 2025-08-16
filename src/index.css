@@ -2,3 +2,5 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Optional: small demo style */
+:root { font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
